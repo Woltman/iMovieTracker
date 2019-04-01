@@ -12,6 +12,7 @@
 		2DAC586D225222F1005DB170 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DAC586B225222F1005DB170 /* Main.storyboard */; };
 		2DAC586F225222F2005DB170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DAC586E225222F2005DB170 /* Assets.xcassets */; };
 		2DAC5872225222F2005DB170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DAC5870225222F2005DB170 /* LaunchScreen.storyboard */; };
+		2DAC587B22523789005DB170 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC587A22523789005DB170 /* Movie.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		2DAC586E225222F2005DB170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DAC5871225222F2005DB170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DAC5873225222F2005DB170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DAC587A22523789005DB170 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		2DAC5866225222F1005DB170 /* iMovieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				2DAC587922523775005DB170 /* Models */,
 				2DAC5867225222F1005DB170 /* AppDelegate.swift */,
 				2DAC5869225222F1005DB170 /* ViewController.swift */,
 				2DAC586B225222F1005DB170 /* Main.storyboard */,
@@ -62,6 +65,15 @@
 				2DAC5873225222F2005DB170 /* Info.plist */,
 			);
 			path = iMovieTracker;
+			sourceTree = "<group>";
+		};
+		2DAC587922523775005DB170 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2DAC587A22523789005DB170 /* Movie.swift */,
+			);
+			name = Models;
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +149,7 @@
 			files = (
 				2DAC586A225222F1005DB170 /* ViewController.swift in Sources */,
 				2DAC5868225222F1005DB170 /* AppDelegate.swift in Sources */,
+				2DAC587B22523789005DB170 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

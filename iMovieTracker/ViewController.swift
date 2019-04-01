@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UITableViewController {
 
     var series = ["bla1", "bla2", "bla3"]
+    var movies = [Movie]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,16 @@ class ViewController: UITableViewController {
                             if let movies = json["results"] as? [Any] {
                                 //Swift.print("\(movies)")
                                 for movie in movies{
-                                    Swift.print(movie)
+                                    //Swift.print(movie)
+                                    if let mo = movie as? [String:Any] {
+                                        var m: Movie
+                                        m = Movie()
+                                        m.title = mo["original_title"] as! String
+                                        self.movies.append(m)
+                                    }
+                                }
+                                DispatchQueue.main.async{
+                                    self.tableView.reloadData()
                                 }
                             }
                         }
@@ -44,13 +54,13 @@ class ViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return series.count
+        return movies.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
         
-        cell.textLabel?.text = series[indexPath.row]
+        cell.textLabel?.text = movies[indexPath.row].title
         
         return cell
     }
