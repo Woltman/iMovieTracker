@@ -12,6 +12,7 @@ class ViewController: UITableViewController {
 
     var series = ["bla1", "bla2", "bla3"]
     var movies = [Movie]()
+    var baseImageUrl = "https://image.tmdb.org/t/p/w300"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +32,12 @@ class ViewController: UITableViewController {
                                 //Swift.print("\(movies)")
                                 for movie in movies{
                                     //Swift.print(movie)
-                                    if let mo = movie as? [String:Any] {
+                                    if var movie = movie as? [String:Any] {
+                                        Swift.print(movie)
                                         var m: Movie
                                         m = Movie()
-                                        m.title = mo["original_title"] as! String
+                                        m.title = movie["original_title"] as! String
+                                        m.imageUrl = movie["poster_path"] as! String
                                         self.movies.append(m)
                                     }
                                 }
@@ -61,6 +64,11 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
         
         cell.textLabel?.text = movies[indexPath.row].title
+        
+        let url = URL(string: "\(baseImageUrl)\(movies[indexPath.row].imageUrl)")
+        if let data = try? Data(contentsOf: url!){
+            cell.imageView?.image = UIImage(data: data)
+        }
         
         return cell
     }
