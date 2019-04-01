@@ -10,50 +10,35 @@ import UIKit
 
 class ViewController: UITableViewController {
 
-    var series = ["bla1", "bla2", "bla3"]
     var movies = [Movie]()
     var baseImageUrl = "https://image.tmdb.org/t/p/w300"
+    var activityIndicatorView: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        if let url = URL(string: "https://api.themoviedb.org/3/discover/movie?api_key=08989a42239e5b70c6e742a879cc531d"){
-            let task = URLSession.shared.dataTask(with: url){ data, response, error in
-                if let receivedData = data {
-                    Swift.print("\(receivedData)")
-                    
-                    do {
-                        // Optie 1: Gebruik JSONSerialization
-                        
-                        if let json = try JSONSerialization.jsonObject(with: receivedData) as? [String:Any] {
-                            //Swift.print("\(json)")
-                            if let movies = json["results"] as? [Any] {
-                                //Swift.print("\(movies)")
-                                for movie in movies{
-                                    //Swift.print(movie)
-                                    if var movie = movie as? [String:Any] {
-                                        Swift.print(movie)
-                                        var m: Movie
-                                        m = Movie()
-                                        m.title = movie["original_title"] as! String
-                                        m.imageUrl = movie["poster_path"] as! String
-                                        self.movies.append(m)
-                                    }
-                                }
-                                DispatchQueue.main.async{
-                                    self.tableView.reloadData()
-                                }
-                            }
-                        }
-                    } catch { }
-                }
-                
-            }
-            
-            task.resume()
-        }
+        //startup loading animation
+        activityIndicatorView = UIActivityIndicatorView(style: .gray)
+        self.tableView.backgroundView = activityIndicatorView
+        activityIndicatorView.startAnimating()
         
+        //make sure there are no lines in screen from table
+        self.tableView.separatorStyle = .none
+        
+        //load movielist
+        let theMovieDB = TheMovieDB()
+        theMovieDB.discoverMovies(callback: setMovies)
+    }
+    
+    func setMovies(movies: [Movie]){
+        self.movies = movies
+        
+        DispatchQueue.main.async {
+            self.activityIndicatorView.stopAnimating()
+            self.tableView.separatorStyle = .singleLine
+            self.tableView.reloadData()
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

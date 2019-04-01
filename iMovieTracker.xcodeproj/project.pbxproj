@@ -13,6 +13,7 @@
 		2DAC586F225222F2005DB170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DAC586E225222F2005DB170 /* Assets.xcassets */; };
 		2DAC5872225222F2005DB170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DAC5870225222F2005DB170 /* LaunchScreen.storyboard */; };
 		2DAC587B22523789005DB170 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC587A22523789005DB170 /* Movie.swift */; };
+		2DAC587D2252440B005DB170 /* TheMovieDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC587C2252440B005DB170 /* TheMovieDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		2DAC5871225222F2005DB170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DAC5873225222F2005DB170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DAC587A22523789005DB170 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		2DAC587C2252440B005DB170 /* TheMovieDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				2DAC587A22523789005DB170 /* Movie.swift */,
+				2DAC587C2252440B005DB170 /* TheMovieDB.swift */,
 			);
 			name = Models;
 			path = "New Group";
@@ -149,6 +152,7 @@
 			files = (
 				2DAC586A225222F1005DB170 /* ViewController.swift in Sources */,
 				2DAC5868225222F1005DB170 /* AppDelegate.swift in Sources */,
+				2DAC587D2252440B005DB170 /* TheMovieDB.swift in Sources */,
 				2DAC587B22523789005DB170 /* Movie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
