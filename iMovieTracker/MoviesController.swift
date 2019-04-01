@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MoviesController.swift
 //  iMovieTracker
 //
 //  Created by Thom Woltman on 01/04/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UITableViewController {
+class MoviesController: UITableViewController {
 
     var movies = [Movie]()
     var baseImageUrl = "https://image.tmdb.org/t/p/w300"
@@ -56,6 +56,10 @@ class ViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    func addToWatchlist() {
+        
     }
 }
 

@@ -1,21 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JGn-MH-ig5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JGn-MH-ig5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="JsU-Vo-MbF">
+        <!--Watchlist-->
+        <scene sceneID="rl9-Wh-6of">
             <objects>
-                <tableViewController id="4jT-ha-Km5" customClass="ViewController" customModule="iMovieTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Cq-Tl-Cc2">
+                <viewController id="OAR-CD-Mxf" customClass="WatchlistController" customModule="iMovieTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qxY-TW-rLU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Movie" id="dBw-EB-Iov">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dBw-EB-Iov" id="pUZ-sU-c0o">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Watchlist" image="Icon_Watchlist" id="Nkd-VK-RAL"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3Ss-OJ-oVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="905" y="1415"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="Mv9-3C-1aZ">
+            <objects>
+                <viewController id="4dy-fD-6qr" customClass="MoviesController" customModule="iMovieTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FQk-lG-wqd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Movie" id="B6a-Bv-BP3">
@@ -27,16 +52,31 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="4jT-ha-Km5" id="BNR-Xu-vVe"/>
-                            <outlet property="delegate" destination="4jT-ha-Km5" id="Qh2-op-FOn"/>
-                        </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ACr-MS-xol"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bix-y5-qjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                    <tabBarItem key="tabBarItem" title="Movies" image="Icon_Movies" id="XX3-Jk-5VP"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bRr-0V-F9s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="278" y="625"/>
+            <point key="canvasLocation" x="-95" y="1415"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="zOT-9H-QJv">
+            <objects>
+                <tabBarController id="kpq-le-AIX" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Lwh-fc-pDH"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RVe-me-gMp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="4dy-fD-6qr" kind="relationship" relationship="viewControllers" id="14s-oi-uV7"/>
+                        <segue destination="OAR-CD-Mxf" kind="relationship" relationship="viewControllers" id="Kmb-NN-hPl"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xuH-K8-d6u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="407" y="625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wZc-52-fMm">
@@ -47,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="4jT-ha-Km5" kind="relationship" relationship="rootViewController" id="uOy-ZV-bUG"/>
+                        <segue destination="kpq-le-AIX" kind="relationship" relationship="rootViewController" id="zzo-j3-Izh"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ex-2y-97n" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -55,4 +95,8 @@
             <point key="canvasLocation" x="-483" y="625"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Icon_Movies" width="24" height="24"/>
+        <image name="Icon_Watchlist" width="24" height="24"/>
+    </resources>
 </document>
