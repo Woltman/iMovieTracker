@@ -58,8 +58,12 @@ class MoviesController: UITableViewController {
         return cell
     }
     
-    func addToWatchlist() {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
+        if let selectedIndexPath = tableView.indexPathForSelectedRow,
+            let destination = segue.destination as? DetailsController {
+            destination.movie = movies[selectedIndexPath.row]
+        }
     }
 }
 

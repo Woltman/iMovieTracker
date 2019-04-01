@@ -47,5 +47,13 @@ class WatchlistController: UITableViewController {
         
         return cell
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow,
+            let destination = segue.destination as? DetailsController {
+            destination.movie = movies[selectedIndexPath.row]
+        }
+    }
 }
 

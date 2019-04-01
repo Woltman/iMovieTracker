@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -25,6 +26,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="gbt-sN-slH" kind="show" id="Mu1-oD-aEk"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -33,6 +37,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Ss-OJ-oVZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="905" y="1415"/>
+        </scene>
+        <!--Details Controller-->
+        <scene sceneID="5aW-cv-qhs">
+            <objects>
+                <viewController id="gbt-sN-slH" customClass="DetailsController" customModule="iMovieTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WJo-dw-GLS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5Jy-Pd-37n">
+                                <rect key="frame" x="0.0" y="0.0" width="29" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="cec-Nb-fcE"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WPK-Kv-Ypj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="406" y="2184"/>
         </scene>
         <!--Movies-->
         <scene sceneID="Mv9-3C-1aZ">
@@ -50,6 +75,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="gbt-sN-slH" kind="show" id="ZIB-i0-ZoC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -99,4 +127,7 @@
         <image name="Icon_Movies" width="24" height="24"/>
         <image name="Icon_Watchlist" width="24" height="24"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZIB-i0-ZoC"/>
+    </inferredMetricsTieBreakers>
 </document>
