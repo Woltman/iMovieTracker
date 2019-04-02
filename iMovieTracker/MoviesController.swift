@@ -11,8 +11,8 @@ import UIKit
 class MoviesController: UITableViewController {
 
     var movies = [Movie]()
-    var baseImageUrl = "https://image.tmdb.org/t/p/w300"
     var activityIndicatorView: UIActivityIndicatorView!
+    let theMovieDB = TheMovieDB()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,6 @@ class MoviesController: UITableViewController {
         self.tableView.separatorStyle = .none
         
         //load movielist
-        let theMovieDB = TheMovieDB()
         theMovieDB.discoverMovies(callback: setMovies)
     }
     
@@ -49,11 +48,7 @@ class MoviesController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
         
         cell.textLabel?.text = movies[indexPath.row].title
-        
-        let url = URL(string: "\(baseImageUrl)\(movies[indexPath.row].imageUrl)")
-        if let data = try? Data(contentsOf: url!){
-            cell.imageView?.image = UIImage(data: data)
-        }
+        cell.imageView?.image = UIImage(data: theMovieDB.loadImageData(url: movies[indexPath.row].imageUrl))
         
         return cell
     }

@@ -26,11 +26,12 @@ class TheMovieDB {
                             if let movies = json["results"] as? [Any] {
                                 for movie in movies{
                                     if var movie = movie as? [String:Any] {
-                                        //Swift.print(movie)
-                                        var m: Movie
-                                        m = Movie()
+                                        Swift.print(movie)
+                                        
+                                        var m = Movie()
                                         m.title = movie["original_title"] as! String
                                         m.imageUrl = movie["poster_path"] as! String
+                                        m.summary = movie["overview"] as! String
                                         moviesResult.append(m)
                                     }
                                 }
@@ -44,5 +45,13 @@ class TheMovieDB {
             task.resume()
             
         }
+    }
+    
+    func loadImageData(url: String) -> Data{
+        let url = URL(string: "\(baseImageUrl)\(url)")
+        if let data = try? Data(contentsOf: url!){
+            return data
+        }
+        return Data()
     }
 }

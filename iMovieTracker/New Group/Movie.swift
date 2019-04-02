@@ -9,11 +9,7 @@
 import Foundation
 
 struct Movie : Codable {
-    var title: String
-    var imageUrl: String
-    
-    init(){
-        title = ""
-        imageUrl = ""
-    }
+    var title: String = ""
+    var imageUrl: String = ""
+    var summary: String = ""
 }
