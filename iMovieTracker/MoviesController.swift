@@ -15,9 +15,11 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
     var movies = [Movie]()
     var activityIndicatorView: UIActivityIndicatorView!
     let theMovieDB = TheMovieDB()
+    var page = 1
     
     var searchData = [Movie]()
     var isSearching = false
+    var isLoadingMovies = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         self.tableView.separatorStyle = .none
         
         //load movielist
-        theMovieDB.discoverMovies(callback: setMovies)
+        theMovieDB.discoverMovies(page: page, callback: setMovies)
         
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
@@ -44,6 +46,16 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         DispatchQueue.main.async {
             self.activityIndicatorView.stopAnimating()
             self.tableView.separatorStyle = .singleLine
+            self.tableView.reloadData()
+        }
+    }
+    
+    func addMovies(movies: [Movie]){
+        self.movies.append(contentsOf: movies)
+        isLoadingMovies = false
+        
+        DispatchQueue.main.async {
+            self.activityIndicatorView.stopAnimating()
             self.tableView.reloadData()
         }
     }
@@ -94,6 +106,15 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         if let selectedIndexPath = tableView.indexPathForSelectedRow,
             let destination = segue.destination as? DetailsController {
             destination.movie = movies[selectedIndexPath.row]
+        }
+    }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height) && !isLoadingMovies) {
+            activityIndicatorView.startAnimating()
+            isLoadingMovies = true
+            page+=1
+            theMovieDB.discoverMovies(page: page, callback: addMovies)
         }
     }
 }
