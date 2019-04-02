@@ -52,7 +52,7 @@ class WatchlistController: UITableViewController {
         
         if let selectedIndexPath = tableView.indexPathForSelectedRow,
             let destination = segue.destination as? DetailsController {
-            destination.movie = movies[selectedIndexPath.row]
+            destination.movie = watchlist[selectedIndexPath.row]
         }
     }
 }
