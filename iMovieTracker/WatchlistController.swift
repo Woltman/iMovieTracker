@@ -90,7 +90,7 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
         else {
             isSearching = true
             
-            searchData = watchlist.filter({$0.title.contains(searchBar.text!)})
+            searchData = watchlist.filter({$0.title.lowercased().contains(searchBar.text!.lowercased())})
             
             tableView.reloadData()
         }
