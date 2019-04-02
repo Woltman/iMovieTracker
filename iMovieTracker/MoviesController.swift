@@ -93,7 +93,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         else {
             isSearching = true
             
-            searchData = movies.filter({$0.title == searchBar.text})
+            searchData = movies.filter({$0.title.contains(searchBar.text!)})
             
             tableView.reloadData()
         }
