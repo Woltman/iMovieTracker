@@ -13,10 +13,10 @@ class TheMovieDB {
     let baseUrl = "https://api.themoviedb.org/3"
     let apiKey = "08989a42239e5b70c6e742a879cc531d"
     
-    func discoverMovies(callback: @escaping ([Movie]) -> Void) {
+    func discoverMovies(page: Int, callback: @escaping ([Movie]) -> Void) {
         var moviesResult = [Movie]()
         
-        if let url = URL(string: "\(baseUrl)/discover/movie?api_key=\(apiKey)"){
+        if let url = URL(string: "\(baseUrl)/discover/movie?api_key=\(apiKey)&page=\(page)"){
             let task = URLSession.shared.dataTask(with: url){ data, response, error in
                 if let receivedData = data {
                     Swift.print("\(receivedData)")
