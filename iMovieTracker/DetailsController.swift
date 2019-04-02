@@ -22,11 +22,12 @@ class DetailsController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = movie?.title
-        summary.text = movie?.summary
-        
-        moviePoster.image = UIImage(data: theMovieDB.loadImageData(url: movie!.imageUrl)) 
-        //todo: add buttons
+        DispatchQueue.main.async {
+            self.title = self.movie?.title
+            self.summary.text = self.movie?.summary
+            self.moviePoster.image = UIImage(data: self.theMovieDB.loadImageData(url: self.movie!.imageUrl))
+            //todo: add buttons
+        }
     }
     
     @IBAction func deleteFromWatchList(_ sender: Any) {

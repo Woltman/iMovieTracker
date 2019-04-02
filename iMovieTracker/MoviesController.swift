@@ -34,7 +34,9 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         self.tableView.separatorStyle = .none
         
         //load movielist
-        theMovieDB.discoverMovies(page: page, callback: setMovies)
+        DispatchQueue.main.async {
+            self.theMovieDB.discoverMovies(page: self.page, callback: self.setMovies)
+        }
         
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
@@ -105,7 +107,12 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         
         if let selectedIndexPath = tableView.indexPathForSelectedRow,
             let destination = segue.destination as? DetailsController {
-            destination.movie = movies[selectedIndexPath.row]
+            if isSearching {
+                destination.movie = searchData[selectedIndexPath.row]
+            }
+            else {
+                destination.movie = movies[selectedIndexPath.row]
+            }
         }
     }
     
@@ -114,7 +121,9 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
             activityIndicatorView.startAnimating()
             isLoadingMovies = true
             page+=1
-            theMovieDB.discoverMovies(page: page, callback: addMovies)
+            DispatchQueue.main.async {
+                self.theMovieDB.discoverMovies(page: self.page, callback: self.addMovies)
+            }
         }
     }
 }
