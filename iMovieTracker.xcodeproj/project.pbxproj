@@ -16,6 +16,7 @@
 		2DAC587D2252440B005DB170 /* TheMovieDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC587C2252440B005DB170 /* TheMovieDB.swift */; };
 		403F42C9225258BC0068C3C6 /* WatchlistController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F42C8225258BC0068C3C6 /* WatchlistController.swift */; };
 		403F42CB2252C7410068C3C6 /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F42CA2252C7410068C3C6 /* DetailsController.swift */; };
+		403F42CD2253947F0068C3C6 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F42CC2253947F0068C3C6 /* SearchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +30,8 @@
 		2DAC587A22523789005DB170 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		2DAC587C2252440B005DB170 /* TheMovieDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDB.swift; sourceTree = "<group>"; };
 		403F42C8225258BC0068C3C6 /* WatchlistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistController.swift; sourceTree = "<group>"; };
-		403F42CA2252C7410068C3C6 /* DetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		403F42CA2252C7410068C3C6 /* DetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
+		403F42CC2253947F0068C3C6 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				2DAC587922523775005DB170 /* Models */,
 				2DAC5867225222F1005DB170 /* AppDelegate.swift */,
 				2DAC5869225222F1005DB170 /* MoviesController.swift */,
+				403F42CC2253947F0068C3C6 /* SearchController.swift */,
 				403F42C8225258BC0068C3C6 /* WatchlistController.swift */,
 				403F42CA2252C7410068C3C6 /* DetailsController.swift */,
 				2DAC586B225222F1005DB170 /* Main.storyboard */,
@@ -159,6 +162,7 @@
 				403F42C9225258BC0068C3C6 /* WatchlistController.swift in Sources */,
 				2DAC586A225222F1005DB170 /* MoviesController.swift in Sources */,
 				2DAC5868225222F1005DB170 /* AppDelegate.swift in Sources */,
+				403F42CD2253947F0068C3C6 /* SearchController.swift in Sources */,
 				2DAC587D2252440B005DB170 /* TheMovieDB.swift in Sources */,
 				403F42CB2252C7410068C3C6 /* DetailsController.swift in Sources */,
 				2DAC587B22523789005DB170 /* Movie.swift in Sources */,
