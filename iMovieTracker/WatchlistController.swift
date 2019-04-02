@@ -8,10 +8,16 @@
 
 import UIKit
 
-class WatchlistController: UITableViewController {
+class WatchlistController: UITableViewController, UISearchBarDelegate {
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var watchlist = [Movie]()
+    var baseImageUrl = "https://image.tmdb.org/t/p/w300"
     var activityIndicatorView: UIActivityIndicatorView!
+    
+    var searchData = [Movie]()
+    var isSearching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +30,9 @@ class WatchlistController: UITableViewController {
         
         //make sure there are no lines in screen from table
         self.tableView.separatorStyle = .none
+        
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
     }
     
     func setWatchlist(watchlist: [Movie]){
@@ -37,15 +46,54 @@ class WatchlistController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if (isSearching) {
+            return searchData.count
+        }
+        
         return watchlist.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
         
-        cell.textLabel?.text = watchlist[indexPath.row].title
+        if (isSearching) {
+            cell.textLabel?.text = searchData[indexPath.row].title
+            
+            let url = URL(string: "\(baseImageUrl)\(searchData[indexPath.row].imageUrl)")
+            if let data = try? Data(contentsOf: url!){
+                cell.imageView?.image = UIImage(data: data)
+            }
+        }
+        else {
+            cell.textLabel?.text = watchlist[indexPath.row].title
+            
+            let url = URL(string: "\(baseImageUrl)\(watchlist[indexPath.row].imageUrl)")
+            if let data = try? Data(contentsOf: url!){
+                cell.imageView?.image = UIImage(data: data)
+            }
+            
+        }
         
         return cell
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
+        if (searchBar.text == nil || searchBar.text == ""){
+            isSearching = false;
+            
+            view.endEditing(true)
+            
+            tableView.reloadData()
+        }
+        else {
+            isSearching = true
+            
+            searchData = watchlist.filter({$0.title == searchBar.text})
+            
+            tableView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
