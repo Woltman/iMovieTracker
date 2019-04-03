@@ -2,6 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:iMovieTracker.xcodeproj">
+      location = "group:/Users/nielsevenblij/Documents/GitHub/iMovieTracker/iMovieTracker/New Group/Setting.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/nielsevenblij/Documents/GitHub/iMovieTracker/iMovieTracker/SettingsController.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../iMovieTracker/New Group">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
