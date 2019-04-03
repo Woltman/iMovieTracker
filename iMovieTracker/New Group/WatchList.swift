@@ -35,6 +35,7 @@ class WatchList {
                 break
             }
         }
+        
         Storage.store(watchlistMovies, to: .documents, as: "watchlist.json")
     }
     
