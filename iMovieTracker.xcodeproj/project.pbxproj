@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D79560E2254B48C00978D88 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D79560D2254B48C00978D88 /* Placeholder.png */; };
+		2D7956102254B6A800978D88 /* placeholder-300x450.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D79560F2254B6A800978D88 /* placeholder-300x450.png */; };
 		2DAC5868225222F1005DB170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC5867225222F1005DB170 /* AppDelegate.swift */; };
 		2DAC586A225222F1005DB170 /* MoviesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC5869225222F1005DB170 /* MoviesController.swift */; };
 		2DAC586D225222F1005DB170 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DAC586B225222F1005DB170 /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D79560D2254B48C00978D88 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Placeholder.png; path = ../../../../Downloads/Placeholder.png; sourceTree = "<group>"; };
+		2D79560F2254B6A800978D88 /* placeholder-300x450.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "placeholder-300x450.png"; path = "../../../../Downloads/placeholder-300x450.png"; sourceTree = "<group>"; };
 		2DAC5864225222F1005DB170 /* iMovieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMovieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DAC5867225222F1005DB170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2DAC5869225222F1005DB170 /* MoviesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesController.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				403F42CA2252C7410068C3C6 /* DetailsController.swift */,
 				2DAC586B225222F1005DB170 /* Main.storyboard */,
 				2DAC586E225222F2005DB170 /* Assets.xcassets */,
+				2D79560D2254B48C00978D88 /* Placeholder.png */,
+				2D79560F2254B6A800978D88 /* placeholder-300x450.png */,
 				2DAC5870225222F2005DB170 /* LaunchScreen.storyboard */,
 				2DAC5873225222F2005DB170 /* Info.plist */,
 			);
@@ -146,7 +152,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D7956102254B6A800978D88 /* placeholder-300x450.png in Resources */,
 				2DAC5872225222F2005DB170 /* LaunchScreen.storyboard in Resources */,
+				2D79560E2254B48C00978D88 /* Placeholder.png in Resources */,
 				2DAC586F225222F2005DB170 /* Assets.xcassets in Resources */,
 				2DAC586D225222F1005DB170 /* Main.storyboard in Resources */,
 			);

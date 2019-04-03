@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class TheMovieDB {
     let baseImageUrl = "https://image.tmdb.org/t/p/w300"
@@ -30,7 +31,10 @@ class TheMovieDB {
                                         
                                         var m = Movie()
                                         m.title = movie["original_title"] as! String
-                                        m.imageUrl = movie["poster_path"] as! String
+                                        if let url = movie["poster_path"] as? String {
+                                            m.imageUrl = url
+                                            m.image = UIImage(data: self.loadImageData(url: m.imageUrl))!
+                                        }
                                         m.summary = movie["overview"] as! String
                                         moviesResult.append(m)
                                     }
@@ -66,6 +70,7 @@ class TheMovieDB {
                                         m.title = movie["original_title"] as! String
                                         if let url = movie["poster_path"] as? String {
                                             m.imageUrl = url
+                                            m.image = UIImage(data: self.loadImageData(url: m.imageUrl))!
                                         }
                                         m.summary = movie["overview"] as! String
                                         moviesResult.append(m)

@@ -7,9 +7,11 @@
 //
 
 import Foundation
+import UIKit
 
-struct Movie : Codable {
+struct Movie {
     var title: String = ""
     var imageUrl: String = ""
     var summary: String = ""
+    var image: UIImage = UIImage(named: "placeholder-300x450")!
 }

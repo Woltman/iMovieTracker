@@ -48,7 +48,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
         
         cell.textLabel?.text = movies[indexPath.row].title
-        cell.imageView?.image = UIImage(data: self.theMovieDB.loadImageData(url: self.movies[indexPath.row].imageUrl))
+        cell.imageView?.image = movies[indexPath.row].image
         
         return cell
     }

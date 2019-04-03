@@ -25,8 +25,7 @@ class DetailsController: UIViewController {
         DispatchQueue.main.async {
             self.title = self.movie?.title
             self.summary.text = self.movie?.summary
-            self.moviePoster.image = UIImage(data: self.theMovieDB.loadImageData(url: self.movie!.imageUrl))
-            //todo: add buttons
+            self.moviePoster.image = self.movie?.image
         }
     }
     

@@ -76,11 +76,11 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         
         if (isSearching) {
             cell.textLabel?.text = searchData[indexPath.row].title
-            cell.imageView?.image = UIImage(data: theMovieDB.loadImageData(url: searchData[indexPath.row].imageUrl))
+            cell.imageView?.image = searchData[indexPath.row].image
         }
         else {
             cell.textLabel?.text = movies[indexPath.row].title
-            cell.imageView?.image = UIImage(data: theMovieDB.loadImageData(url: movies[indexPath.row].imageUrl))
+            cell.imageView?.image = movies[indexPath.row].image
         }
         
         return cell
