@@ -159,7 +159,6 @@
                                 <color key="backgroundColor" red="0.89813512563705444" green="0.12222562875871751" blue="0.19260116380369205" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Delete from Watchlist">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -176,6 +175,8 @@
                         <viewLayoutGuide key="safeArea" id="cec-Nb-fcE"/>
                     </view>
                     <connections>
+                        <outlet property="addToWatchListButton" destination="XXR-Qz-h8K" id="srM-WD-25h"/>
+                        <outlet property="deleteFromWatchListButton" destination="jPj-ZF-v5U" id="zQu-DI-wKg"/>
                         <outlet property="moviePoster" destination="jeg-Kt-cjU" id="4Gy-t3-VOu"/>
                         <outlet property="summary" destination="lzA-Ex-XU7" id="pDe-LW-5AJ"/>
                     </connections>

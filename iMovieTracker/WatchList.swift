@@ -15,10 +15,8 @@ class WatchList {
     static var theMovieDB = TheMovieDB()
     
     static func saveMovie(movie: Movie){
-        for m in watchlistMovies {
-            if m.title == movie.title {
-                return
-            }
+        if contains(movie: movie) {
+            return
         }
         didChange = true
         let cMovie = CodableMovie(movie: movie)
@@ -67,5 +65,14 @@ class WatchList {
     
     static func didListChange() -> Bool {
         return didChange
+    }
+    
+    static func contains(movie: Movie) -> Bool {
+        for m in watchlistMovies {
+            if m.title == movie.title {
+                return true
+            }
+        }
+        return false
     }
 }
