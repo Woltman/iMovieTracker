@@ -32,7 +32,9 @@ class TheMovieDB {
                                         m.title = movie["original_title"] as! String
                                         if let url = movie["poster_path"] as? String {
                                             m.imageUrl = url
-                                            m.image = UIImage(data: self.loadImageData(url: m.imageUrl))!
+                                            if let image = UIImage(data: self.loadImageData(url: m.imageUrl)) {
+                                                m.image = image
+                                            }
                                         }
                                         m.summary = movie["overview"] as! String
                                         moviesResult.append(m)
@@ -69,7 +71,9 @@ class TheMovieDB {
                                         m.title = movie["original_title"] as! String
                                         if let url = movie["poster_path"] as? String {
                                             m.imageUrl = url
-                                            m.image = UIImage(data: self.loadImageData(url: m.imageUrl))!
+                                            if let image = UIImage(data: self.loadImageData(url: m.imageUrl)) {
+                                                m.image = image
+                                            }
                                         }
                                         m.summary = movie["overview"] as! String
                                         moviesResult.append(m)
