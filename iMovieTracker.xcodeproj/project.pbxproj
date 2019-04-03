@@ -27,7 +27,7 @@
 
 /* Begin PBXFileReference section */
 		2D79560D2254B48C00978D88 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Placeholder.png; path = ../../../../Downloads/Placeholder.png; sourceTree = "<group>"; };
-		2D79560F2254B6A800978D88 /* placeholder-300x450.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "placeholder-300x450.png"; path = "../../../../Downloads/placeholder-300x450.png"; sourceTree = "<group>"; };
+		2D79560F2254B6A800978D88 /* placeholder-300x450.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder-300x450.png"; sourceTree = "<group>"; };
 		2D7956132254CE2500978D88 /* WatchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchList.swift; sourceTree = "<group>"; };
 		2D7956152254D06500978D88 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		2D7956172254D0AD00978D88 /* CodableMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableMovie.swift; sourceTree = "<group>"; };
