@@ -33,6 +33,11 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
         
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
+        
+        DispatchQueue.main.async {
+            WatchList.loadMovies()
+            self.setWatchlist(watchlist: WatchList.getMovies())
+        }
     }
     
     func setWatchlist(watchlist: [Movie]){
@@ -60,20 +65,11 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
         
         if (isSearching) {
             cell.textLabel?.text = searchData[indexPath.row].title
-            
-            let url = URL(string: "\(baseImageUrl)\(searchData[indexPath.row].imageUrl)")
-            if let data = try? Data(contentsOf: url!){
-                cell.imageView?.image = UIImage(data: data)
-            }
+            cell.imageView?.image = searchData[indexPath.row].image
         }
         else {
             cell.textLabel?.text = watchlist[indexPath.row].title
-            
-            let url = URL(string: "\(baseImageUrl)\(watchlist[indexPath.row].imageUrl)")
-            if let data = try? Data(contentsOf: url!){
-                cell.imageView?.image = UIImage(data: data)
-            }
-            
+            cell.imageView?.image = watchlist[indexPath.row].image
         }
         
         return cell
@@ -101,6 +97,14 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
         if let selectedIndexPath = tableView.indexPathForSelectedRow,
             let destination = segue.destination as? DetailsController {
             destination.movie = watchlist[selectedIndexPath.row]
+        }
+    }
+    
+    func updateWatchlist() {
+        if WatchList.didChange {
+            DispatchQueue.main.async {
+                self.setWatchlist(watchlist: WatchList.getMovies())
+            }
         }
     }
 }

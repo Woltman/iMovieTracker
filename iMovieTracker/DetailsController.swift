@@ -31,9 +31,21 @@ class DetailsController: UIViewController {
     
     @IBAction func deleteFromWatchList(_ sender: Any) {
         Swift.print("delete from list")
+        
+        if let movie = self.movie {
+            DispatchQueue.main.async {
+                WatchList.removeMovie(movie: movie)
+            }
+        }
     }
     
     @IBAction func addToWatchList(_ sender: Any) {
         Swift.print("add to list")
+        
+        if let movie = self.movie {
+            DispatchQueue.main.async {
+                WatchList.saveMovie(movie: movie)
+            }
+        }
     }
 }

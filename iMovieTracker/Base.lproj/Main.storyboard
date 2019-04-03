@@ -194,7 +194,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="zOT-9H-QJv">
             <objects>
-                <tabBarController id="kpq-le-AIX" sceneMemberID="viewController">
+                <tabBarController id="kpq-le-AIX" customClass="TabBarController" customModule="iMovieTracker" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Lwh-fc-pDH"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RVe-me-gMp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -234,6 +234,6 @@
         <image name="Icon_Watchlist" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="57O-kA-Xxx"/>
+        <segue reference="Mu1-oD-aEk"/>
     </inferredMetricsTieBreakers>
 </document>
