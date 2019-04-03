@@ -16,7 +16,7 @@ struct Movie {
     var image: UIImage
     
     init(){
-        if let i = UIImage(named: "placeholder-300x450") {
+        if let i = UIImage(named: "placeholder") {
             image = i
         }
         else {
