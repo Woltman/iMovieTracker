@@ -40,6 +40,10 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.updateWatchlist()
+    }
+    
     func setWatchlist(watchlist: [Movie]){
         self.watchlist = watchlist
         
