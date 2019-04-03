@@ -12,7 +12,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
 
     @IBOutlet weak var searchBar: UISearchBar!
     
-    var movies = [Movie]()
+    var discoverMovies = [Movie]()
     var activityIndicatorView: UIActivityIndicatorView!
     let theMovieDB = TheMovieDB()
     var page = 1
@@ -45,7 +45,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
     
     func setMovies(movies: [Movie], totalpages: Int){
         self.totalpages = totalpages
-        self.movies = movies
+        self.discoverMovies = movies
         
         DispatchQueue.main.async {
             self.activityIndicatorView.stopAnimating()
@@ -55,7 +55,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
     }
     
     func addMovies(movies: [Movie], totalpages: Int){
-        self.movies.append(contentsOf: movies)
+        self.discoverMovies.append(contentsOf: movies)
         isLoadingMovies = false
         
         DispatchQueue.main.async {
@@ -70,7 +70,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
             return searchData.count
         }
         
-        return movies.count
+        return discoverMovies.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,8 +81,8 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
             cell.imageView?.image = searchData[indexPath.row].image
         }
         else {
-            cell.textLabel?.text = movies[indexPath.row].title
-            cell.imageView?.image = movies[indexPath.row].image
+            cell.textLabel?.text = discoverMovies[indexPath.row].title
+            cell.imageView?.image = discoverMovies[indexPath.row].image
         }
         
         return cell
@@ -99,7 +99,9 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         else {
             isSearching = true
             
-            searchData = movies.filter({$0.title.lowercased().contains(searchBar.text!.lowercased())})
+            if let query = searchBar.text?.lowercased(){
+                searchData = discoverMovies.filter({$0.title.lowercased().contains(query.lowercased())})
+            }
             
             tableView.reloadData()
         }
@@ -113,7 +115,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
                 destination.movie = searchData[selectedIndexPath.row]
             }
             else {
-                destination.movie = movies[selectedIndexPath.row]
+                destination.movie = discoverMovies[selectedIndexPath.row]
             }
         }
     }

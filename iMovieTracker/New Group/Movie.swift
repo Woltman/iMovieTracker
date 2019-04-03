@@ -10,8 +10,20 @@ import Foundation
 import UIKit
 
 struct Movie {
-    var title: String = ""
-    var imageUrl: String = ""
-    var summary: String = ""
-    var image: UIImage = UIImage(named: "placeholder-300x450")!
+    var title: String
+    var imageUrl: String
+    var summary: String
+    var image: UIImage
+    
+    init(){
+        if let i = UIImage(named: "placeholder-300x450") {
+            image = i
+        }
+        else {
+            image = UIImage()
+        }
+        title = ""
+        imageUrl = ""
+        summary = ""
+    }
 }

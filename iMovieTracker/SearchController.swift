@@ -58,15 +58,19 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.movies = []
+        
+        if let query = searchBar.text {
+            self.lastQuery = query
+        }
+        
         DispatchQueue.main.async{
             //setup loading screen
-            self.movies = []
             self.tableView.separatorStyle = .none
             self.tableView.reloadData()
             self.activityIndicatorView.startAnimating()
-            self.lastQuery = searchBar.text!
             
-            self.theMovieDB.searchMovies(page: self.page, query: searchBar.text!, callback: self.setMovies)
+            self.theMovieDB.searchMovies(page: self.page, query: self.lastQuery, callback: self.setMovies)
         }
     }
     

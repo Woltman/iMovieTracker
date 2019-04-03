@@ -13,7 +13,6 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var watchlist = [Movie]()
-    var baseImageUrl = "https://image.tmdb.org/t/p/w300"
     var activityIndicatorView: UIActivityIndicatorView!
     
     var searchData = [Movie]()
@@ -90,7 +89,9 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
         else {
             isSearching = true
             
-            searchData = watchlist.filter({$0.title.lowercased().contains(searchBar.text!.lowercased())})
+            if let query = searchBar.text {
+                searchData = watchlist.filter({$0.title.lowercased().contains(query.lowercased())})
+            }
             
             tableView.reloadData()
         }
@@ -105,7 +106,7 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
     }
     
     func updateWatchlist() {
-        if WatchList.didChange {
+        if WatchList.didListChange() {
             DispatchQueue.main.async {
                 self.setWatchlist(watchlist: WatchList.getMovies())
             }

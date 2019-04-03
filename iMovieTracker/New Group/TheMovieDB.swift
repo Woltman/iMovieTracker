@@ -24,19 +24,26 @@ class TheMovieDB {
                     do {
                         if let json = try JSONSerialization.jsonObject(with: receivedData) as? [String:Any] {
                             Swift.print(json)
-                            totalpages = json["total_pages"] as! Int
+                            if let tpages = json["total_pages"] as? Int {
+                                totalpages = tpages
+                            }
+                            
                             if let movies = json["results"] as? [Any] {
                                 for movie in movies{
                                     if var movie = movie as? [String:Any] {
                                         var m = Movie()
-                                        m.title = movie["original_title"] as! String
+                                        if let title = movie["original_title"] as? String{
+                                            m.title = title
+                                        }
                                         if let url = movie["poster_path"] as? String {
                                             m.imageUrl = url
                                             if let image = UIImage(data: self.loadImageData(url: m.imageUrl)) {
                                                 m.image = image
                                             }
                                         }
-                                        m.summary = movie["overview"] as! String
+                                        if let summary = movie["overview"] as? String {
+                                            m.summary = summary
+                                        }
                                         moviesResult.append(m)
                                     }
                                 }
@@ -63,19 +70,25 @@ class TheMovieDB {
                     
                     do {
                         if let json = try JSONSerialization.jsonObject(with: receivedData) as? [String:Any] {
-                            totalpages = json["total_pages"] as! Int
+                            if let tpages = json["total_pages"] as? Int {
+                                totalpages = tpages
+                            }
                             if let movies = json["results"] as? [Any] {
                                 for movie in movies{
                                     if var movie = movie as? [String:Any] {
                                         var m = Movie()
-                                        m.title = movie["original_title"] as! String
+                                        if let title = movie["original_title"] as? String{
+                                            m.title = title
+                                        }
                                         if let url = movie["poster_path"] as? String {
                                             m.imageUrl = url
                                             if let image = UIImage(data: self.loadImageData(url: m.imageUrl)) {
                                                 m.image = image
                                             }
                                         }
-                                        m.summary = movie["overview"] as! String
+                                        if let summary = movie["overview"] as? String {
+                                            m.summary = summary
+                                        }
                                         moviesResult.append(m)
                                     }
                                 }
@@ -92,10 +105,12 @@ class TheMovieDB {
     }
     
     func loadImageData(url: String) -> Data{
-        let url = URL(string: "\(baseImageUrl)\(url)")
-        if let data = try? Data(contentsOf: url!){
-            return data
+        if let url = URL(string: "\(baseImageUrl)\(url)") {
+            if let data = try? Data(contentsOf: url){
+                return data
+            }
         }
+        
         return Data()
     }
 }
