@@ -25,7 +25,7 @@ class SettingsController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "Setting")
-        cell.textLabel?.text = settings[indexPath.row].setting
+        cell.textLabel?.text = settings[indexPath.row].title
         let switchView = UISwitch(frame: .zero)
         switchView.setOn(settings[indexPath.row].value, animated: true)
         switchView.tag = indexPath.row
@@ -37,20 +37,40 @@ class SettingsController: UITableViewController {
     
     @objc func switchChanged(_ sender: UISwitch){
         settings[sender.tag].value = sender.isOn
-        defaults.set(sender.isOn, forKey: settings[sender.tag].setting)
+        defaults.set(sender.isOn, forKey: settings[sender.tag].key)
     }
     
     func createSettings() {
-        //create settings
+        
+        let hideMoviePoster = Setting(key: "hideMoviePoster", title: "Hide Movie Poster", value: false)
+        
+        settings.append(hideMoviePoster)
+        
+        loadSettings()
+    }
+    
+    func loadSettings() {
+        for setting in settings {
+            if defaults.string(forKey: setting.key) != nil {
+                setting.value = defaults.bool(forKey: setting.key)
+            }
+            else {
+                defaults.set(false, forKey: setting.key)
+            }
+        }
         
         
-        //if setting exists in userdefaults.standard
-        if defaults.string(forKey: "hideMoviePoster") != nil {
-            settings.append(Setting(setting: "hideMoviePoster", title: "Hide movie poster", value: defaults.bool(forKey: "hideMoviePoster")))
-        }
-        else {
-            defaults.set(false, forKey: "hideMoviePoster")
-            settings.append(Setting(setting: "hideMoviePoster", title: "Hide movie poster", value: false))
-        }
+//
+//
+//
+//
+//
+//        if defaults.string(forKey: "hideMoviePoster") != nil {
+//            settings.append(Setting(key: "hideMoviePoster", title: "Hide Movie Poster", value: defaults.bool(forKey: "hideMoviePoster")))
+//        }
+//        else {
+//            defaults.set(false, forKey: "hideMoviePoster")
+//            settings.append(Setting(key: "hideMoviePoster", title: "Hide movie poster", value: false))
+//        }
     }
 }

@@ -8,12 +8,12 @@
 import Foundation
 
 class Setting {
-    var setting: String = ""
+    var key: String = ""
     var title: String = ""
     var value: Bool = false
     
-    init(setting:String, title:String, value:Bool){
-        self.setting = setting
+    init(key:String, title:String, value:Bool){
+        self.key = key
         self.title = title
         self.value = value
     }
