@@ -23,6 +23,7 @@
 		403F42CD2253947F0068C3C6 /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F42CC2253947F0068C3C6 /* SearchController.swift */; };
 		403F42D62255110D0068C3C6 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F42D52255110D0068C3C6 /* SettingsController.swift */; };
 		403F42D8225512DC0068C3C6 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F42D7225512DC0068C3C6 /* Setting.swift */; };
+		403F42DA2255651B0068C3C6 /* DefaultStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 403F42D92255651B0068C3C6 /* DefaultStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		403F42CC2253947F0068C3C6 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		403F42D52255110D0068C3C6 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsController.swift; path = /Users/nielsevenblij/Documents/GitHub/iMovieTracker/iMovieTracker/SettingsController.swift; sourceTree = "<absolute>"; };
 		403F42D7225512DC0068C3C6 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Setting.swift; path = "/Users/nielsevenblij/Documents/GitHub/iMovieTracker/iMovieTracker/New Group/Setting.swift"; sourceTree = "<absolute>"; };
+		403F42D92255651B0068C3C6 /* DefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultStorage.swift; path = /Users/nielsevenblij/Documents/GitHub/iMovieTracker/iMovieTracker/DefaultStorage.swift; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				403F42C8225258BC0068C3C6 /* WatchlistController.swift */,
 				403F42CA2252C7410068C3C6 /* DetailsController.swift */,
 				403F42D52255110D0068C3C6 /* SettingsController.swift */,
+				403F42D92255651B0068C3C6 /* DefaultStorage.swift */,
 				2DAC586B225222F1005DB170 /* Main.storyboard */,
 				2DAC586E225222F2005DB170 /* Assets.xcassets */,
 				2DAC5870225222F2005DB170 /* LaunchScreen.storyboard */,
@@ -186,6 +189,7 @@
 				403F42CD2253947F0068C3C6 /* SearchController.swift in Sources */,
 				2DAC587D2252440B005DB170 /* TheMovieDB.swift in Sources */,
 				2D7956162254D06500978D88 /* Storage.swift in Sources */,
+				403F42DA2255651B0068C3C6 /* DefaultStorage.swift in Sources */,
 				2D7956142254CE2500978D88 /* WatchList.swift in Sources */,
 				403F42CB2252C7410068C3C6 /* DetailsController.swift in Sources */,
 				2DAC587B22523789005DB170 /* Movie.swift in Sources */,

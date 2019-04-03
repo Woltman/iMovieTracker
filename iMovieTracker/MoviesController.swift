@@ -13,7 +13,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var discoverMovies = [Movie]()
-    var defaults = UserDefaults.standard
+    var defaultStorage = DefaultStorage()
     var activityIndicatorView: UIActivityIndicatorView!
     let theMovieDB = TheMovieDB()
     var page = 1
@@ -76,10 +76,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
-        var hideMoviePoster = false
-        if (defaults.string(forKey: "hideMoviePoster") != nil) {
-            hideMoviePoster = defaults.bool(forKey: "hideMoviePoster")
-        }
+        var hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
         
         if (isSearching) {
             cell.textLabel?.text = searchData[indexPath.row].title

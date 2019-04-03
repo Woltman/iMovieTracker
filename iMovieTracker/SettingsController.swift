@@ -10,14 +10,13 @@ import UIKit
 class SettingsController: UITableViewController {
     
     var settings = [Setting]()
-    var defaults = UserDefaults.standard
+    var defaultStorage = DefaultStorage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         createSettings()
     }
-    
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settings.count
@@ -37,7 +36,7 @@ class SettingsController: UITableViewController {
     
     @objc func switchChanged(_ sender: UISwitch){
         settings[sender.tag].value = sender.isOn
-        defaults.set(sender.isOn, forKey: settings[sender.tag].key)
+        defaultStorage.setSetting(key: settings[sender.tag].key, value: sender.isOn)
     }
     
     func createSettings() {
@@ -51,26 +50,7 @@ class SettingsController: UITableViewController {
     
     func loadSettings() {
         for setting in settings {
-            if (defaults.string(forKey: setting.key) != nil) {
-                setting.value = defaults.bool(forKey: setting.key)
-            }
-            else {
-                defaults.set(false, forKey: setting.key)
-            }
+            setting.value = defaultStorage.getSetting(key: setting.key)
         }
-        
-        
-//
-//
-//
-//
-//
-//        if defaults.string(forKey: "hideMoviePoster") != nil {
-//            settings.append(Setting(key: "hideMoviePoster", title: "Hide Movie Poster", value: defaults.bool(forKey: "hideMoviePoster")))
-//        }
-//        else {
-//            defaults.set(false, forKey: "hideMoviePoster")
-//            settings.append(Setting(key: "hideMoviePoster", title: "Hide movie poster", value: false))
-//        }
     }
 }

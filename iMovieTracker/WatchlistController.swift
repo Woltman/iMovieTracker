@@ -13,6 +13,7 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var watchlist = [Movie]()
+    var defaultStorage = DefaultStorage()
     var defaults = UserDefaults.standard
     var activityIndicatorView: UIActivityIndicatorView!
     
@@ -66,7 +67,7 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
-        var hideMoviePoster = false
+        var hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
         if (defaults.string(forKey: "hideMoviePoster") != nil) {
             hideMoviePoster = defaults.bool(forKey: "hideMoviePoster")
         }
