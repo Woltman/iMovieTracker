@@ -14,21 +14,20 @@ class TheMovieDB {
     let baseUrl = "https://api.themoviedb.org/3"
     let apiKey = "08989a42239e5b70c6e742a879cc531d"
     
-    func discoverMovies(page: Int, callback: @escaping ([Movie]) -> Void) {
+    func discoverMovies(page: Int, callback: @escaping ([Movie], Int) -> Void) {
         var moviesResult = [Movie]()
+        var totalpages = 1;
         
         if let url = URL(string: "\(baseUrl)/discover/movie?api_key=\(apiKey)&page=\(page)"){
             let task = URLSession.shared.dataTask(with: url){ data, response, error in
                 if let receivedData = data {
-                    Swift.print("\(receivedData)")
-                    
                     do {
                         if let json = try JSONSerialization.jsonObject(with: receivedData) as? [String:Any] {
+                            Swift.print(json)
+                            totalpages = json["total_pages"] as! Int
                             if let movies = json["results"] as? [Any] {
                                 for movie in movies{
                                     if var movie = movie as? [String:Any] {
-                                        Swift.print(movie)
-                                        
                                         var m = Movie()
                                         m.title = movie["original_title"] as! String
                                         if let url = movie["poster_path"] as? String {
@@ -41,7 +40,7 @@ class TheMovieDB {
                                 }
                             }
                         }
-                        callback(moviesResult)
+                        callback(moviesResult, totalpages)
                     } catch { }
                     
                 }
@@ -51,8 +50,9 @@ class TheMovieDB {
         }
     }
     
-    func searchMovies(page: Int, query: String, callback: @escaping ([Movie]) -> Void) {
+    func searchMovies(page: Int, query: String, callback: @escaping ([Movie], Int) -> Void) {
         var moviesResult = [Movie]()
+        var totalpages = 1;
         
         if let url = URL(string: "\(baseUrl)/search/movie?api_key=\(apiKey)&page=\(page)&query=\(query)"){
             let task = URLSession.shared.dataTask(with: url){ data, response, error in
@@ -61,11 +61,10 @@ class TheMovieDB {
                     
                     do {
                         if let json = try JSONSerialization.jsonObject(with: receivedData) as? [String:Any] {
+                            totalpages = json["total_pages"] as! Int
                             if let movies = json["results"] as? [Any] {
                                 for movie in movies{
                                     if var movie = movie as? [String:Any] {
-                                        Swift.print(movie)
-                                        
                                         var m = Movie()
                                         m.title = movie["original_title"] as! String
                                         if let url = movie["poster_path"] as? String {
@@ -78,7 +77,7 @@ class TheMovieDB {
                                 }
                             }
                         }
-                        callback(moviesResult)
+                        callback(moviesResult, totalpages)
                     } catch { }
                     
                 }

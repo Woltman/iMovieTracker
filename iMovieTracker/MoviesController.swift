@@ -16,6 +16,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
     var activityIndicatorView: UIActivityIndicatorView!
     let theMovieDB = TheMovieDB()
     var page = 1
+    var totalpages = 1;
     
     var searchData = [Movie]()
     var isSearching = false
@@ -42,7 +43,8 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         searchBar.returnKeyType = UIReturnKeyType.done
     }
     
-    func setMovies(movies: [Movie]){
+    func setMovies(movies: [Movie], totalpages: Int){
+        self.totalpages = totalpages
         self.movies = movies
         
         DispatchQueue.main.async {
@@ -52,7 +54,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         }
     }
     
-    func addMovies(movies: [Movie]){
+    func addMovies(movies: [Movie], totalpages: Int){
         self.movies.append(contentsOf: movies)
         isLoadingMovies = false
         
@@ -117,7 +119,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height) && !isLoadingMovies) {
+        if (scrollView.contentOffset.y >= (scrollView.contentSize.height - scrollView.frame.size.height) && !isLoadingMovies && page < totalpages) {
             activityIndicatorView.startAnimating()
             isLoadingMovies = true
             page+=1
