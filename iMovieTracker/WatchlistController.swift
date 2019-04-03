@@ -13,6 +13,7 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     
     var watchlist = [Movie]()
+    var defaults = UserDefaults.standard
     var activityIndicatorView: UIActivityIndicatorView!
     
     var searchData = [Movie]()
@@ -65,14 +66,22 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
+        var hideMoviePoster = false
+        if (defaults.string(forKey: "hideMoviePoster") != nil) {
+            hideMoviePoster = defaults.bool(forKey: "hideMoviePoster")
+        }
         
         if (isSearching) {
             cell.textLabel?.text = searchData[indexPath.row].title
-            cell.imageView?.image = searchData[indexPath.row].image
+            if (!hideMoviePoster) {
+                cell.imageView?.image = searchData[indexPath.row].image
+            }
         }
         else {
             cell.textLabel?.text = watchlist[indexPath.row].title
-            cell.imageView?.image = watchlist[indexPath.row].image
+            if (!hideMoviePoster) {
+                cell.imageView?.image = watchlist[indexPath.row].image
+            }
         }
         
         return cell

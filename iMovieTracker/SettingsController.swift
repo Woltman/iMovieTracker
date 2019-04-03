@@ -51,7 +51,7 @@ class SettingsController: UITableViewController {
     
     func loadSettings() {
         for setting in settings {
-            if defaults.string(forKey: setting.key) != nil {
+            if (defaults.string(forKey: setting.key) != nil) {
                 setting.value = defaults.bool(forKey: setting.key)
             }
             else {
