@@ -16,6 +16,7 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
     var defaultStorage = DefaultStorage()
     var defaults = UserDefaults.standard
     var activityIndicatorView: UIActivityIndicatorView!
+    var hideMoviePoster = false;
     
     var searchData = [Movie]()
     var isSearching = false
@@ -32,6 +33,9 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
         //make sure there are no lines in screen from table
         self.tableView.separatorStyle = .none
         
+        //Get Hide Movie Poster setting
+        hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
+        
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
         
@@ -43,6 +47,10 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         self.updateWatchlist()
+        if (hideMoviePoster != defaultStorage.getSetting(key: "hideMoviePoster")){
+            hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
+            tableView.reloadData()
+        }
     }
     
     func setWatchlist(watchlist: [Movie]){
