@@ -93,11 +93,17 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
             if (!hideMoviePoster) {
                 cell.imageView?.image = searchData[indexPath.row].image
             }
+            else {
+                cell.imageView?.image = nil
+            }
         }
         else {
             cell.textLabel?.text = discoverMovies[indexPath.row].title
             if (!hideMoviePoster) {
                 cell.imageView?.image = discoverMovies[indexPath.row].image
+            }
+            else {
+                cell.imageView?.image = nil
             }
         }
         
