@@ -40,6 +40,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         
         //load movielist
         DispatchQueue.main.async {
+            WatchList.loadMovies()
             self.theMovieDB.discoverMovies(page: self.page, callback: self.setMovies)
         }
         

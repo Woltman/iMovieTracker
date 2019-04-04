@@ -40,7 +40,6 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
         searchBar.returnKeyType = UIReturnKeyType.done
         
         DispatchQueue.main.async {
-            WatchList.loadMovies()
             self.setWatchlist(watchlist: WatchList.getMovies())
         }
     }
