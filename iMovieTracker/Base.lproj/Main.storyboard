@@ -201,7 +201,7 @@
                                     <action selector="deleteFromWatchList:" destination="gbt-sN-slH" eventType="primaryActionTriggered" id="2gZ-qk-NgJ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzA-Ex-XU7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="lzA-Ex-XU7">
                                 <rect key="frame" x="20" y="354" width="335" height="153"/>
                                 <string key="text">***************************************************************************************************************************************************************************************************************************************************************************************************************************</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
