@@ -12,10 +12,12 @@ class CodableMovie : Codable {
     var title: String = ""
     var imageUrl: String = ""
     var summary: String = ""
+    var releaseDate: String = ""
     
     init(movie: Movie) {
         title = movie.title
         imageUrl = movie.imageUrl
         summary = movie.summary
+        releaseDate = movie.releaseDate
     }
 }

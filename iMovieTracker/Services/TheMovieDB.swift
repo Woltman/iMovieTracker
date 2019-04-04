@@ -44,6 +44,9 @@ class TheMovieDB {
                                         if let summary = movie["overview"] as? String {
                                             m.summary = summary
                                         }
+                                        if let release = movie["release_date"] as? String {
+                                            m.releaseDate = release
+                                        }
                                         moviesResult.append(m)
                                     }
                                 }
@@ -88,6 +91,9 @@ class TheMovieDB {
                                         }
                                         if let summary = movie["overview"] as? String {
                                             m.summary = summary
+                                        }
+                                        if let release = movie["release_date"] as? String {
+                                            m.releaseDate = release
                                         }
                                         moviesResult.append(m)
                                     }

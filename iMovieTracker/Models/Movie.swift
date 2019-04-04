@@ -14,6 +14,7 @@ struct Movie {
     var imageUrl: String
     var summary: String
     var image: UIImage
+    var releaseDate: String
     
     init(){
         if let i = UIImage(named: "placeholder") {
@@ -25,5 +26,19 @@ struct Movie {
         title = ""
         imageUrl = ""
         summary = ""
+        releaseDate = ""
+    }
+    
+    init(movie: CodableMovie){
+        if let i = UIImage(named: "placeholder") {
+            image = i
+        }
+        else {
+            image = UIImage()
+        }
+        title = movie.title
+        imageUrl = movie.imageUrl
+        summary = movie.summary
+        releaseDate = movie.releaseDate
     }
 }

@@ -51,10 +51,7 @@ class WatchList {
         var result = [Movie]()
 
         for m in watchlistMovies {
-            var movie = Movie()
-            movie.imageUrl = m.imageUrl
-            movie.title = m.title
-            movie.summary = m.summary
+            var movie = Movie(movie: m)
             if let image = UIImage(data: theMovieDB.loadImageData(url: m.imageUrl)) {
                 movie.image = image
             }

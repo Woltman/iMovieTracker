@@ -90,6 +90,8 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         
         if (isSearching) {
             cell.textLabel?.text = searchData[indexPath.row].title
+            cell.detailTextLabel?.text = searchData[indexPath.row].releaseDate
+            
             if (!hideMoviePoster) {
                 cell.imageView?.image = searchData[indexPath.row].image
             }
@@ -99,6 +101,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         }
         else {
             cell.textLabel?.text = discoverMovies[indexPath.row].title
+            cell.detailTextLabel?.text = discoverMovies[indexPath.row].releaseDate
             if (!hideMoviePoster) {
                 cell.imageView?.image = discoverMovies[indexPath.row].image
             }

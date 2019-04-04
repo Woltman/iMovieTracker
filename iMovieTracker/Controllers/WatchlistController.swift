@@ -82,12 +82,14 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
         
         if (isSearching) {
             cell.textLabel?.text = searchData[indexPath.row].title
+            cell.detailTextLabel?.text = searchData[indexPath.row].releaseDate
             if (!hideMoviePoster) {
                 cell.imageView?.image = searchData[indexPath.row].image
             }
         }
         else {
             cell.textLabel?.text = watchlist[indexPath.row].title
+            cell.detailTextLabel?.text = watchlist[indexPath.row].releaseDate
             if (!hideMoviePoster) {
                 cell.imageView?.image = watchlist[indexPath.row].image
             }
