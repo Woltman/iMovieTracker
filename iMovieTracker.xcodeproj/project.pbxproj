@@ -43,9 +43,9 @@
 		403F42C8225258BC0068C3C6 /* WatchlistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistController.swift; sourceTree = "<group>"; };
 		403F42CA2252C7410068C3C6 /* DetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
 		403F42CC2253947F0068C3C6 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		403F42D52255110D0068C3C6 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsController.swift; path = /Users/nielsevenblij/Documents/GitHub/iMovieTracker/iMovieTracker/SettingsController.swift; sourceTree = "<absolute>"; };
+		403F42D52255110D0068C3C6 /* SettingsController.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		403F42D7225512DC0068C3C6 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Setting.swift; path = "/Users/nielsevenblij/Documents/GitHub/iMovieTracker/iMovieTracker/New Group/Setting.swift"; sourceTree = "<absolute>"; };
-		403F42D92255651B0068C3C6 /* DefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DefaultStorage.swift; path = /Users/nielsevenblij/Documents/GitHub/iMovieTracker/iMovieTracker/DefaultStorage.swift; sourceTree = "<absolute>"; };
+		403F42D92255651B0068C3C6 /* DefaultStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
