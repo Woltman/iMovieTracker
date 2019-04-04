@@ -27,9 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2D7956132254CE2500978D88 /* WatchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WatchList.swift; path = ../WatchList.swift; sourceTree = "<group>"; };
+		2D7956132254CE2500978D88 /* WatchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchList.swift; sourceTree = "<group>"; };
 		2D7956152254D06500978D88 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
-		2D7956172254D0AD00978D88 /* CodableMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CodableMovie.swift; path = ../CodableMovie.swift; sourceTree = "<group>"; };
+		2D7956172254D0AD00978D88 /* CodableMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableMovie.swift; sourceTree = "<group>"; };
 		2D7956192254D94900978D88 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2DAC5864225222F1005DB170 /* iMovieTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMovieTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DAC5867225222F1005DB170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,8 +38,8 @@
 		2DAC586E225222F2005DB170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2DAC5871225222F2005DB170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DAC5873225222F2005DB170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2DAC587A22523789005DB170 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Movie.swift; path = ../Movie.swift; sourceTree = "<group>"; };
-		2DAC587C2252440B005DB170 /* TheMovieDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TheMovieDB.swift; path = ../TheMovieDB.swift; sourceTree = "<group>"; };
+		2DAC587A22523789005DB170 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		2DAC587C2252440B005DB170 /* TheMovieDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDB.swift; sourceTree = "<group>"; };
 		403F42C8225258BC0068C3C6 /* WatchlistController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistController.swift; sourceTree = "<group>"; };
 		403F42CA2252C7410068C3C6 /* DetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
 		403F42CC2253947F0068C3C6 /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
@@ -59,6 +59,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D07E09322561FA5004AE940 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2D7956192254D94900978D88 /* TabBarController.swift */,
+				2DAC5869225222F1005DB170 /* MoviesController.swift */,
+				403F42CC2253947F0068C3C6 /* SearchController.swift */,
+				403F42C8225258BC0068C3C6 /* WatchlistController.swift */,
+				403F42CA2252C7410068C3C6 /* DetailsController.swift */,
+				403F42D52255110D0068C3C6 /* SettingsController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2D07E0942256202D004AE940 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2DAC587C2252440B005DB170 /* TheMovieDB.swift */,
+				2D7956132254CE2500978D88 /* WatchList.swift */,
+				403F42D92255651B0068C3C6 /* DefaultStorage.swift */,
+				2D7956152254D06500978D88 /* Storage.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		2DAC585B225222F1005DB170 = {
 			isa = PBXGroup;
 			children = (
@@ -78,20 +102,14 @@
 		2DAC5866225222F1005DB170 /* iMovieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				2D07E0942256202D004AE940 /* Services */,
+				2D07E09322561FA5004AE940 /* Controllers */,
 				2DAC587922523775005DB170 /* Models */,
 				2DAC5867225222F1005DB170 /* AppDelegate.swift */,
-				2DAC5869225222F1005DB170 /* MoviesController.swift */,
-				403F42CC2253947F0068C3C6 /* SearchController.swift */,
-				403F42C8225258BC0068C3C6 /* WatchlistController.swift */,
-				403F42CA2252C7410068C3C6 /* DetailsController.swift */,
-				403F42D52255110D0068C3C6 /* SettingsController.swift */,
-				403F42D92255651B0068C3C6 /* DefaultStorage.swift */,
 				2DAC586B225222F1005DB170 /* Main.storyboard */,
 				2DAC586E225222F2005DB170 /* Assets.xcassets */,
 				2DAC5870225222F2005DB170 /* LaunchScreen.storyboard */,
 				2DAC5873225222F2005DB170 /* Info.plist */,
-				2D7956152254D06500978D88 /* Storage.swift */,
-				2D7956192254D94900978D88 /* TabBarController.swift */,
 			);
 			path = iMovieTracker;
 			sourceTree = "<group>";
@@ -101,12 +119,9 @@
 			children = (
 				403F42D7225512DC0068C3C6 /* Setting.swift */,
 				2DAC587A22523789005DB170 /* Movie.swift */,
-				2DAC587C2252440B005DB170 /* TheMovieDB.swift */,
-				2D7956132254CE2500978D88 /* WatchList.swift */,
 				2D7956172254D0AD00978D88 /* CodableMovie.swift */,
 			);
-			name = Models;
-			path = "New Group";
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
