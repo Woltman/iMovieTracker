@@ -17,6 +17,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     var page = 1
     var totalpages = 1
     var theMovieDB = TheMovieDB()
+    var defaultStorage = DefaultStorage()
     
     var lastQuery = ""
     var isLoadingMovies = false
@@ -49,10 +50,14 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
+        print(hideMoviePoster)
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
         
         cell.textLabel?.text = movies[indexPath.row].title
-        cell.imageView?.image = movies[indexPath.row].image
+        if (!hideMoviePoster) {
+            cell.imageView?.image = movies[indexPath.row].image
+        }
         
         return cell
     }

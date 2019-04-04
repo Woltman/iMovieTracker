@@ -18,6 +18,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
     let theMovieDB = TheMovieDB()
     var page = 1
     var totalpages = 1;
+    var hideMoviePoster = false;
     
     var searchData = [Movie]()
     var isSearching = false
@@ -35,6 +36,9 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         //make sure there are no lines in screen from table
         self.tableView.separatorStyle = .none
         
+        //Get Hide Movie Poster setting
+        hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
+        
         //load movielist
         DispatchQueue.main.async {
             self.theMovieDB.discoverMovies(page: self.page, callback: self.setMovies)
@@ -42,6 +46,13 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if (hideMoviePoster != defaultStorage.getSetting(key: "hideMoviePoster")){
+            hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
+            tableView.reloadData()
+        }
     }
     
     func setMovies(movies: [Movie], totalpages: Int){
@@ -76,7 +87,6 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
-        var hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
         
         if (isSearching) {
             cell.textLabel?.text = searchData[indexPath.row].title
