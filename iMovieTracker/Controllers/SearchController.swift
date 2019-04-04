@@ -18,6 +18,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     var totalpages = 1
     var theMovieDB = TheMovieDB()
     var defaultStorage = DefaultStorage()
+    var hideMoviePoster = false;
     
     var lastQuery = ""
     var isLoadingMovies = false
@@ -35,6 +36,16 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         
         //make sure there are no lines in screen from table
         self.tableView.separatorStyle = .none
+        
+        //Get Hide Movie Poster setting
+        hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if (hideMoviePoster != defaultStorage.getSetting(key: "hideMoviePoster")){
+            hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
+            tableView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -50,13 +61,14 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
-        print(hideMoviePoster)
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
         
         cell.textLabel?.text = movies[indexPath.row].title
         if (!hideMoviePoster) {
             cell.imageView?.image = movies[indexPath.row].image
+        }
+        else {
+            cell.imageView?.image = nil
         }
         
         return cell
