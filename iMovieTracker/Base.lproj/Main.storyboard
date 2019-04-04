@@ -152,25 +152,22 @@
         <scene sceneID="5aW-cv-qhs">
             <objects>
                 <viewController id="gbt-sN-slH" customClass="DetailsController" customModule="iMovieTracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" id="dFk-O4-lbO">
+                    <view key="view" contentMode="scaleToFill" id="nJf-Fi-dH9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jeg-Kt-cjU">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="305"/>
+                                <rect key="frame" x="20" y="84" width="335" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="igd-bl-r3F"/>
+                                </constraints>
                                 <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzA-Ex-XU7">
-                                <rect key="frame" x="0.0" y="325" width="375" height="102"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXR-Qz-h8K">
-                                <rect key="frame" x="0.0" y="447" width="375" height="100"/>
+                                <rect key="frame" x="20" y="527" width="335" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="NXI-ub-vzD"/>
+                                    <constraint firstAttribute="height" constant="50" id="FhN-wR-uiS"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Add to Watchlist">
@@ -186,10 +183,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPj-ZF-v5U">
-                                <rect key="frame" x="0.0" y="567" width="375" height="100"/>
+                                <rect key="frame" x="20" y="597" width="335" height="50"/>
                                 <color key="backgroundColor" red="0.89813512563705444" green="0.12222562875871751" blue="0.19260116380369205" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="oJc-OY-KgW"/>
+                                    <constraint firstAttribute="height" constant="50" id="pRy-S1-6AJ"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Delete from Watchlist">
@@ -204,9 +201,32 @@
                                     <action selector="deleteFromWatchList:" destination="gbt-sN-slH" eventType="primaryActionTriggered" id="2gZ-qk-NgJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lzA-Ex-XU7">
+                                <rect key="frame" x="20" y="354" width="335" height="153"/>
+                                <string key="text">***************************************************************************************************************************************************************************************************************************************************************************************************************************</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="QCG-Fp-nfu"/>
-                    </stackView>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XXR-Qz-h8K" firstAttribute="leading" secondItem="wh2-ZF-3ra" secondAttribute="leading" constant="20" id="Avu-YO-YvD"/>
+                            <constraint firstItem="jeg-Kt-cjU" firstAttribute="leading" secondItem="wh2-ZF-3ra" secondAttribute="leading" constant="20" id="FuY-AM-ZIs"/>
+                            <constraint firstItem="wh2-ZF-3ra" firstAttribute="trailing" secondItem="jeg-Kt-cjU" secondAttribute="trailing" constant="20" id="HjD-gF-sZZ"/>
+                            <constraint firstItem="wh2-ZF-3ra" firstAttribute="trailing" secondItem="lzA-Ex-XU7" secondAttribute="trailing" constant="20" id="JJb-kO-DXg"/>
+                            <constraint firstItem="wh2-ZF-3ra" firstAttribute="trailing" secondItem="jPj-ZF-v5U" secondAttribute="trailing" constant="20" id="MS0-Ll-Uho"/>
+                            <constraint firstItem="jPj-ZF-v5U" firstAttribute="leading" secondItem="wh2-ZF-3ra" secondAttribute="leading" constant="20" id="RI0-DO-TSb"/>
+                            <constraint firstItem="jeg-Kt-cjU" firstAttribute="top" secondItem="wh2-ZF-3ra" secondAttribute="top" constant="20" id="THM-Li-zOX"/>
+                            <constraint firstItem="lzA-Ex-XU7" firstAttribute="leading" secondItem="wh2-ZF-3ra" secondAttribute="leading" constant="20" id="Uie-G4-DsO"/>
+                            <constraint firstItem="wh2-ZF-3ra" firstAttribute="trailing" secondItem="XXR-Qz-h8K" secondAttribute="trailing" constant="20" id="fGd-Qa-sY6"/>
+                            <constraint firstItem="lzA-Ex-XU7" firstAttribute="top" secondItem="jeg-Kt-cjU" secondAttribute="bottom" constant="20" id="hcm-tP-whb"/>
+                            <constraint firstItem="wh2-ZF-3ra" firstAttribute="bottom" secondItem="jPj-ZF-v5U" secondAttribute="bottom" constant="20" id="jgv-uq-O0Q"/>
+                            <constraint firstItem="XXR-Qz-h8K" firstAttribute="top" secondItem="lzA-Ex-XU7" secondAttribute="bottom" constant="20" id="sgv-si-s6N"/>
+                            <constraint firstItem="jPj-ZF-v5U" firstAttribute="top" secondItem="XXR-Qz-h8K" secondAttribute="bottom" constant="20" id="vSf-Zm-Hei"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wh2-ZF-3ra"/>
+                    </view>
                     <connections>
                         <outlet property="addToWatchListButton" destination="XXR-Qz-h8K" id="srM-WD-25h"/>
                         <outlet property="deleteFromWatchListButton" destination="jPj-ZF-v5U" id="zQu-DI-wKg"/>
