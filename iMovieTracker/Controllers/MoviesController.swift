@@ -27,7 +27,6 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
         //startup loading animation
         activityIndicatorView = UIActivityIndicatorView(style: .gray)
         self.tableView.backgroundView = activityIndicatorView
@@ -49,6 +48,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = "Discover Movies"
         if (hideMoviePoster != defaultStorage.getSetting(key: "hideMoviePoster")){
             hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
             tableView.reloadData()

@@ -42,6 +42,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.topItem?.title = "Search Movies"
         if (hideMoviePoster != defaultStorage.getSetting(key: "hideMoviePoster")){
             hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
             tableView.reloadData()
