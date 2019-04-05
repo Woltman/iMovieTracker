@@ -17,6 +17,7 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
     var defaults = UserDefaults.standard
     var activityIndicatorView: UIActivityIndicatorView!
     var hideMoviePoster = false;
+    var hideSubtitle = false;
     
     var searchData = [Movie]()
     var isSearching = false
@@ -35,6 +36,7 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
         
         //Get Hide Movie Poster setting
         hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
+        hideSubtitle = defaultStorage.getSetting(key: "hideSubtitle")
         
         searchBar.delegate = self
         searchBar.returnKeyType = UIReturnKeyType.done
@@ -50,6 +52,10 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
         self.updateWatchlist()
         if (hideMoviePoster != defaultStorage.getSetting(key: "hideMoviePoster")){
             hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
+            tableView.reloadData()
+        }
+        if (hideSubtitle != defaultStorage.getSetting(key: "hideSubtitle")){
+            hideSubtitle = defaultStorage.getSetting(key: "hideSubtitle")
             tableView.reloadData()
         }
     }
@@ -83,22 +89,34 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
         
         if (isSearching) {
             cell.textLabel?.text = searchData[indexPath.row].title
-            cell.detailTextLabel?.text = searchData[indexPath.row].releaseDate
+            
             if (!hideMoviePoster) {
                 cell.imageView?.image = searchData[indexPath.row].image
             }
             else {
                 cell.imageView?.image = nil
             }
+            if(!hideSubtitle){
+                cell.detailTextLabel?.text = searchData[indexPath.row].releaseDate
+            }
+            else{
+                cell.detailTextLabel?.text = ""
+            }
         }
         else {
             cell.textLabel?.text = watchlist[indexPath.row].title
-            cell.detailTextLabel?.text = watchlist[indexPath.row].releaseDate
+            
             if (!hideMoviePoster) {
                 cell.imageView?.image = watchlist[indexPath.row].image
             }
             else {
                 cell.imageView?.image = nil
+            }
+            if(!hideSubtitle){
+                cell.detailTextLabel?.text = watchlist[indexPath.row].releaseDate
+            }
+            else{
+                cell.detailTextLabel?.text = ""
             }
         }
         

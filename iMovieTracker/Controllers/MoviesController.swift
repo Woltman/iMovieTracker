@@ -19,6 +19,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
     var page = 1
     var totalpages = 1;
     var hideMoviePoster = false;
+    var hideSubtitle = false;
     
     var searchData = [Movie]()
     var isSearching = false
@@ -37,6 +38,7 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         
         //Get Hide Movie Poster setting
         hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
+        hideSubtitle = defaultStorage.getSetting(key: "hideSubtitle")
         
         //load movielist
         DispatchQueue.main.async {
@@ -52,6 +54,10 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         self.navigationController?.navigationBar.topItem?.title = "Discover Movies"
         if (hideMoviePoster != defaultStorage.getSetting(key: "hideMoviePoster")){
             hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
+            tableView.reloadData()
+        }
+        if (hideSubtitle != defaultStorage.getSetting(key: "hideSubtitle")){
+            hideSubtitle = defaultStorage.getSetting(key: "hideSubtitle")
             tableView.reloadData()
         }
     }
@@ -91,13 +97,18 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         
         if (isSearching) {
             cell.textLabel?.text = searchData[indexPath.row].title
-            cell.detailTextLabel?.text = searchData[indexPath.row].releaseDate
             
             if (!hideMoviePoster) {
                 cell.imageView?.image = searchData[indexPath.row].image
             }
             else {
                 cell.imageView?.image = nil
+            }
+            if(!hideSubtitle){
+                cell.detailTextLabel?.text = searchData[indexPath.row].releaseDate
+            }
+            else{
+                cell.detailTextLabel?.text = ""
             }
         }
         else {
@@ -108,6 +119,12 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
             }
             else {
                 cell.imageView?.image = nil
+            }
+            if(!hideSubtitle){
+                cell.detailTextLabel?.text = discoverMovies[indexPath.row].releaseDate
+            }
+            else{
+                cell.detailTextLabel?.text = ""
             }
         }
         

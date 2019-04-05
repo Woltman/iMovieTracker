@@ -46,8 +46,10 @@ class SettingsController: UITableViewController {
     func createSettings() {
         
         let hideMoviePoster = Setting(key: "hideMoviePoster", title: "Hide Movie Poster", value: false)
+        let hideSubtitle = Setting(key: "hideSubtitle", title: "Hide Subtitle", value: false)
         
         settings.append(hideMoviePoster)
+        settings.append(hideSubtitle)
         
         loadSettings()
     }

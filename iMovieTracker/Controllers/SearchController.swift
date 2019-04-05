@@ -19,6 +19,7 @@ class SearchController: UITableViewController, UISearchBarDelegate {
     var theMovieDB = TheMovieDB()
     var defaultStorage = DefaultStorage()
     var hideMoviePoster = false;
+    var hideSubtitle = false;
     
     var lastQuery = ""
     var isLoadingMovies = false
@@ -39,12 +40,17 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         
         //Get Hide Movie Poster setting
         hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
+        hideSubtitle = defaultStorage.getSetting(key: "hideMoviePoster")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.topItem?.title = "Search Movies"
         if (hideMoviePoster != defaultStorage.getSetting(key: "hideMoviePoster")){
             hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
+            tableView.reloadData()
+        }
+        if (hideSubtitle != defaultStorage.getSetting(key: "hideSubtitle")){
+            hideSubtitle = defaultStorage.getSetting(key: "hideSubtitle")
             tableView.reloadData()
         }
     }
@@ -65,12 +71,18 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
         
         cell.textLabel?.text = movies[indexPath.row].title
-        cell.detailTextLabel?.text = movies[indexPath.row].releaseDate
+        
         if (!hideMoviePoster) {
             cell.imageView?.image = movies[indexPath.row].image
         }
         else {
             cell.imageView?.image = nil
+        }
+        if(!hideSubtitle){
+            cell.detailTextLabel?.text = movies[indexPath.row].releaseDate
+        }
+        else{
+            cell.detailTextLabel?.text = ""
         }
         
         return cell
