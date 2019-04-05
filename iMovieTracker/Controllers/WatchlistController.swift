@@ -33,6 +33,7 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
         
         //make sure there are no lines in screen from table
         self.tableView.separatorStyle = .none
+        self.tableView.tableFooterView = UIView()
         
         //Get Hide Movie Poster setting
         hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
