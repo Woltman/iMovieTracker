@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class WatchList {
-    static var watchlistMovies = [CodableMovie]()
+    static var watchlistMovies = [Movie]()
     static var didChange = false
     static var theMovieDB = TheMovieDB()
     
@@ -19,10 +19,10 @@ class WatchList {
             return
         }
         didChange = true
-        let cMovie = CodableMovie(movie: movie)
+        watchlistMovies.append(movie)
         
-        watchlistMovies.append(cMovie)
-        Storage.store(watchlistMovies, to: .documents, as: "watchlist.json")
+        let cMovies = parse(movies: watchlistMovies)
+        Storage.store(cMovies, to: .documents, as: "watchlist.json")
     }
     
     static func removeMovie(movie: Movie){
@@ -33,8 +33,8 @@ class WatchList {
                 break
             }
         }
-        
-        Storage.store(watchlistMovies, to: .documents, as: "watchlist.json")
+        let cMovies = parse(movies: watchlistMovies)
+        Storage.store(cMovies, to: .documents, as: "watchlist.json")
     }
     
     static func loadMovies() {
@@ -43,21 +43,21 @@ class WatchList {
         }
         
         let cMovies = Storage.retrieve("watchlist.json", from: .documents, as: [CodableMovie].self)
-        watchlistMovies.append(contentsOf: cMovies)
+        var movies = [Movie]()
+        for m in cMovies {
+            var movie = Movie(movie: m)
+            let data = theMovieDB.loadImageData(url: m.imageUrl)
+            if let image = UIImage(data: data) {
+                movie.image = image
+            }
+            movies.append(movie)
+        }
+        watchlistMovies.append(contentsOf: movies)
     }
     
     static func getMovies() -> [Movie] {
         didChange = false
-        var result = [Movie]()
-
-        for m in watchlistMovies {
-            var movie = Movie(movie: m)
-            if let image = UIImage(data: theMovieDB.loadImageData(url: m.imageUrl)) {
-                movie.image = image
-            }
-            result.append(movie)
-        }
-        return result
+        return watchlistMovies
     }
     
     static func didListChange() -> Bool {
@@ -71,5 +71,23 @@ class WatchList {
             }
         }
         return false
+    }
+    
+    private static func parse(movies: [Movie]) -> [CodableMovie]{
+        var result = [CodableMovie]()
+        for m in movies {
+            let cMovie = CodableMovie(movie: m)
+            result.append(cMovie)
+        }
+        return result
+    }
+    
+    private static func parse(cMovies: [CodableMovie]) -> [Movie]{
+        var result = [Movie]()
+        for m in cMovies {
+            let movie = Movie(movie: m)
+            result.append(movie)
+        }
+        return result
     }
 }
