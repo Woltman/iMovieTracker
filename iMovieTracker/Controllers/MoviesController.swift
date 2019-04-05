@@ -40,17 +40,18 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
         hideSubtitle = defaultStorage.getSetting(key: "hideSubtitle")
         
+        searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
+        
         //load movielist
         DispatchQueue.main.async {
             WatchList.loadMovies()
             self.theMovieDB.discoverMovies(page: self.page, callback: self.setMovies)
         }
-        
-        searchBar.delegate = self
-        searchBar.returnKeyType = UIReturnKeyType.done
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         self.navigationController?.navigationBar.topItem?.title = "Discover Movies"
         if (hideMoviePoster != defaultStorage.getSetting(key: "hideMoviePoster")){
             hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
