@@ -36,10 +36,6 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             if selectedTab != 3 {
                 print("Watchlist tab")
                 selectedTab = 3
-                
-                if let watchlistController = viewController as? WatchlistController {
-                    watchlistController.updateWatchlist()
-                }
             }
         }
     }
