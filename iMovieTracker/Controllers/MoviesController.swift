@@ -97,35 +97,13 @@ class MoviesController: UITableViewController, UISearchBarDelegate {
         
         if (isSearching) {
             cell.textLabel?.text = searchData[indexPath.row].title
-            
-            if (!hideMoviePoster) {
-                cell.imageView?.image = searchData[indexPath.row].image
-            }
-            else {
-                cell.imageView?.image = nil
-            }
-            if(!hideSubtitle){
-                cell.detailTextLabel?.text = searchData[indexPath.row].releaseDate
-            }
-            else{
-                cell.detailTextLabel?.text = ""
-            }
+            cell.imageView?.image = SettingsHelper.hideMoviePoster(movies: searchData, indexPath: indexPath, hide: hideMoviePoster)
+            cell.detailTextLabel?.text = SettingsHelper.hideSubtitle(movies: searchData, indexPath: indexPath, hide: hideSubtitle)
         }
         else {
             cell.textLabel?.text = discoverMovies[indexPath.row].title
-            cell.detailTextLabel?.text = discoverMovies[indexPath.row].releaseDate
-            if (!hideMoviePoster) {
-                cell.imageView?.image = discoverMovies[indexPath.row].image
-            }
-            else {
-                cell.imageView?.image = nil
-            }
-            if(!hideSubtitle){
-                cell.detailTextLabel?.text = discoverMovies[indexPath.row].releaseDate
-            }
-            else{
-                cell.detailTextLabel?.text = ""
-            }
+            cell.imageView?.image = SettingsHelper.hideMoviePoster(movies: discoverMovies, indexPath: indexPath, hide: hideMoviePoster)
+            cell.detailTextLabel?.text = SettingsHelper.hideSubtitle(movies: discoverMovies, indexPath: indexPath, hide: hideSubtitle)
         }
         
         return cell

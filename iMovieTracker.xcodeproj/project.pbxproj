@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D3DB54422574504000B9051 /* SettingsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3DB54322574504000B9051 /* SettingsHelper.swift */; };
 		2D7956142254CE2500978D88 /* WatchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7956132254CE2500978D88 /* WatchList.swift */; };
 		2D7956162254D06500978D88 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7956152254D06500978D88 /* Storage.swift */; };
 		2D7956182254D0AD00978D88 /* CodableMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7956172254D0AD00978D88 /* CodableMovie.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D3DB54322574504000B9051 /* SettingsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsHelper.swift; sourceTree = "<group>"; };
 		2D7956132254CE2500978D88 /* WatchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchList.swift; sourceTree = "<group>"; };
 		2D7956152254D06500978D88 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		2D7956172254D0AD00978D88 /* CodableMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableMovie.swift; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		2D3DB542225744DA000B9051 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2D3DB54322574504000B9051 /* SettingsHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		2DAC585B225222F1005DB170 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +112,7 @@
 		2DAC5866225222F1005DB170 /* iMovieTracker */ = {
 			isa = PBXGroup;
 			children = (
+				2D3DB542225744DA000B9051 /* Helpers */,
 				2D07E0942256202D004AE940 /* Services */,
 				2D07E09322561FA5004AE940 /* Controllers */,
 				2DAC587922523775005DB170 /* Models */,
@@ -196,6 +207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				403F42D62255110D0068C3C6 /* SettingsController.swift in Sources */,
+				2D3DB54422574504000B9051 /* SettingsHelper.swift in Sources */,
 				403F42C9225258BC0068C3C6 /* WatchlistController.swift in Sources */,
 				2DAC586A225222F1005DB170 /* MoviesController.swift in Sources */,
 				2D79561A2254D94900978D88 /* TabBarController.swift in Sources */,

@@ -82,42 +82,16 @@ class WatchlistController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
-        var hideMoviePoster = defaultStorage.getSetting(key: "hideMoviePoster")
-        if (defaults.string(forKey: "hideMoviePoster") != nil) {
-            hideMoviePoster = defaults.bool(forKey: "hideMoviePoster")
-        }
         
         if (isSearching) {
             cell.textLabel?.text = searchData[indexPath.row].title
-            
-            if (!hideMoviePoster) {
-                cell.imageView?.image = searchData[indexPath.row].image
-            }
-            else {
-                cell.imageView?.image = nil
-            }
-            if(!hideSubtitle){
-                cell.detailTextLabel?.text = searchData[indexPath.row].releaseDate
-            }
-            else{
-                cell.detailTextLabel?.text = ""
-            }
+            cell.imageView?.image = SettingsHelper.hideMoviePoster(movies: searchData, indexPath: indexPath, hide: hideMoviePoster)
+            cell.detailTextLabel?.text = SettingsHelper.hideSubtitle(movies: searchData, indexPath: indexPath, hide: hideSubtitle)
         }
         else {
             cell.textLabel?.text = watchlist[indexPath.row].title
-            
-            if (!hideMoviePoster) {
-                cell.imageView?.image = watchlist[indexPath.row].image
-            }
-            else {
-                cell.imageView?.image = nil
-            }
-            if(!hideSubtitle){
-                cell.detailTextLabel?.text = watchlist[indexPath.row].releaseDate
-            }
-            else{
-                cell.detailTextLabel?.text = ""
-            }
+            cell.imageView?.image = SettingsHelper.hideMoviePoster(movies: watchlist, indexPath: indexPath, hide: hideMoviePoster)
+            cell.detailTextLabel?.text = SettingsHelper.hideSubtitle(movies: watchlist, indexPath: indexPath, hide: hideSubtitle)
         }
         
         return cell

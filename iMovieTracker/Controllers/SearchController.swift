@@ -71,19 +71,8 @@ class SearchController: UITableViewController, UISearchBarDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Movie", for: indexPath)
         
         cell.textLabel?.text = movies[indexPath.row].title
-        
-        if (!hideMoviePoster) {
-            cell.imageView?.image = movies[indexPath.row].image
-        }
-        else {
-            cell.imageView?.image = nil
-        }
-        if(!hideSubtitle){
-            cell.detailTextLabel?.text = movies[indexPath.row].releaseDate
-        }
-        else{
-            cell.detailTextLabel?.text = ""
-        }
+        cell.imageView?.image = SettingsHelper.hideMoviePoster(movies: movies, indexPath: indexPath, hide: hideMoviePoster)
+        cell.detailTextLabel?.text = SettingsHelper.hideSubtitle(movies: movies, indexPath: indexPath, hide: hideSubtitle)
         
         return cell
     }
